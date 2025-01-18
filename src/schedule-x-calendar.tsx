@@ -1,6 +1,7 @@
-import { CalendarApp } from '@schedule-x/calendar'
-import React, { createElement, Fragment, useEffect, useState } from 'react'
+import React, { Fragment, createElement, useEffect, useState } from 'react'
 import { createPortal } from 'react-dom'
+import { CalendarApp } from 'schedule-x/packages/calendar/dist/core.js'
+
 import {
   CustomComponentMeta,
   CustomComponentsMeta,

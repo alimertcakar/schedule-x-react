@@ -1,19 +1,22 @@
+import 'schedule-x/packages/theme-default/dist/index.css'
+
 import './App.css'
-import { ScheduleXCalendar, useCalendarApp } from '../src'
+
+import { createCalendarControlsPlugin } from 'schedule-x/packages/calendar-controls/dist/core.js'
 import {
   viewDay,
   viewMonthAgenda,
   viewMonthGrid,
   viewWeek,
-} from '@schedule-x/calendar'
-import '@schedule-x/theme-default/dist/index.css'
-import { createDragAndDropPlugin } from '@schedule-x/drag-and-drop'
-import { createEventModalPlugin } from '@schedule-x/event-modal'
-import CustomTimeGridEvent from './components/CustomTimeGridEvent.tsx'
+} from 'schedule-x/packages/calendar/dist/core.js'
+import { createDragAndDropPlugin } from 'schedule-x/packages/drag-and-drop/dist/core.js'
+import { createEventModalPlugin } from "schedule-x/packages/event-modal/dist/core.js"
+import { createEventsServicePlugin } from 'schedule-x/packages/events-service/dist/core.js'
+
+import { ScheduleXCalendar, useCalendarApp } from '../src'
 import CustomDateGridEvent from './components/CustomDateGridEvent.tsx'
 import CustomEventModal from './components/CustomEventModal.tsx'
-import { createEventsServicePlugin } from '@schedule-x/events-service'
-import { createCalendarControlsPlugin } from '@schedule-x/calendar-controls'
+import CustomTimeGridEvent from './components/CustomTimeGridEvent.tsx'
 
 function App() {
   const calendarApp = useCalendarApp(

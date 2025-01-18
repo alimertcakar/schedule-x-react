@@ -1,16 +1,20 @@
+import { useEffect, useState } from 'react'
 import {
   CalendarApp,
   CalendarConfig,
   createCalendar,
-} from '@schedule-x/calendar'
-import { useEffect, useState } from 'react'
-import { PluginBase } from '@schedule-x/shared'
+} from 'schedule-x/packages/calendar/dist/core.js'
+import { PluginBase } from 'schedule-x/packages/shared/dist/core.js'
 
 export function useCalendarApp<Plugins extends PluginBase<string>[]>(
   config: CalendarConfig,
   plugins?: Plugins
 ) {
-  const [calendarApp] = useState(() => createCalendar<Plugins>(config, plugins))
+  const [calendarApp, setCalendarApp] = useState(() => createCalendar<Plugins>(config, plugins))
+
+  useEffect(()=>{
+    setCalendarApp(createCalendar<Plugins>(config, plugins))
+  },[config?.locale])
   return calendarApp
 }
 
